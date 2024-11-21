@@ -10,12 +10,14 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import os
 
 # Obter dados
 try:
     os.system("cls")
     print("Obtendo dados...")
+
     ENDERECO_DADOS="https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv"
     
     #encodings: utf-8, iso-8859-1, latin1, cp1252
@@ -108,3 +110,44 @@ except Exception as e:
     print(f"Erro ao obter informações sobre padrão de roubo de veículos: {e}")
     exit()
 
+# AULA 21 - CRIANDO GRÁFICO BOXPLOT
+try:
+    # plt.boxplot(array_roubo_veiculo)
+    # imprimindo na horizontal, exibindo media e ignorando outliers (não é boa prática)
+    # plt.boxplot(array_roubo_veiculo, vert=False, showmeans=True, showfliers=True)
+    # plt.show()
+
+    # DIVIDINDO O GRAFICO EM SUBPLOTS
+    # 1, 2 = uma linha, 2 colunas
+    plt.subplots(1, 2, figsize=(16,7))
+    plt.suptitle("Análise de roubo de veículos no RJ")
+
+    # 1,2,1 = Primeiro espaço de 1 linha e 2 colunas
+    plt.subplot(1,2,1)
+    plt.boxplot(array_roubo_veiculo, vert=False, showmeans=True)
+    plt.title("Boxplot dos Dados")
+
+    # Segundo gráfico
+    plt.subplot(1, 2, 2)  # Configurar o segundo gráfico no lado direito
+    plt.text(0.1, 0.9, f'Média: {media_roubo_veiculo}', fontsize=12)
+    plt.text(0.1, 0.8, f'Mediana: {mediana_roubo_veiculo}', fontsize=12)
+    plt.text(0.1, 0.7, f'Distância: {dist_roubo_veiculo}', fontsize=12)
+    plt.text(0.1, 0.6, f'Menor valor: {minimo}', fontsize=12) 
+    plt.text(0.1, 0.5, f'Limite inferior: {limite_inferior}', fontsize=12)
+    plt.text(0.1, 0.4, f'Q1: {q1}', fontsize=12)
+    plt.text(0.1, 0.3, f'Q3: {q3}', fontsize=12)
+    plt.text(0.1, 0.2, f'Limite superior: {limite_superior}', fontsize=12)
+    plt.text(0.1, 0.1, f'Maior valor: {maximo}', fontsize=12)
+    plt.text(0.1, 0.0, f'Amplitude Total: {amplitude}', fontsize=12)
+    plt.title("Medidas Observadas")
+
+    # Desativar os eixos
+    plt.axis("off")
+
+    # Ajustar o layout
+    plt.tight_layout()
+
+    plt.show()
+except Exception as e:
+    print(f"Erro ao imprimir dados: {e}")
+    exit()
