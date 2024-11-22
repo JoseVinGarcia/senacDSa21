@@ -126,7 +126,7 @@ try:
     plt.text(0.1, 0.5, f'Limite inferior: {limite_inferior}', fontsize=12)
     plt.text(0.1, 0.4, f'Q1: {q1}', fontsize=12)
     plt.text(0.1, 0.3, f'Q3: {q3}', fontsize=12)
-    plt.text(0.1, 0.3, f'Limite superior: {limite_superior}', fontsize=12)
+    plt.text(0.1, 0.2, f'Limite superior: {limite_superior}', fontsize=12)
     plt.text(0.1, 0.1, f'Maior valor: {maximo}', fontsize=12)
     plt.text(0.1, 0.0, f'Amplitude Total: {amplitude}', fontsize=12)
     plt.title("Medidas Observadas")
