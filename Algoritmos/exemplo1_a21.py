@@ -110,6 +110,23 @@ except Exception as e:
     print(f"Erro ao obter informações sobre padrão de roubo de veículos: {e}")
     exit()
 
+# AULA 21 - CALCULANDO MEDIDAS DE DISTRIBUIÇÃO
+try:
+    print("\nCalculando Medidas de Distribuição...")
+
+    # Calculando Assimetria
+    assimetria = df_roubo_veiculo["roubo_veiculo"].skew()
+
+    # Calculando Curtose
+    curtose = df_roubo_veiculo["roubo_veiculo"].kurtosis()
+
+    print("\nMedidas de distribuição:")
+    print(f"Assimetria: {assimetria}")
+    print(f"Curtose: {curtose}")
+except Exception as e:
+    print(f"Erro {e}")
+
+
 # AULA 21 - CRIANDO GRÁFICO BOXPLOT
 try:
     # plt.boxplot(array_roubo_veiculo)
