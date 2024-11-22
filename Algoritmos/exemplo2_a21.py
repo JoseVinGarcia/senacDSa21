@@ -1,4 +1,4 @@
-# ATIVIDADE 1 - EXPANDINDO ANÁLISE DA AULA 8
+# EXEMPLO 2 - EXPANDINDO ATIVIDADE
 
 import pandas as pd
 import numpy as np
@@ -104,25 +104,35 @@ except Exception as e:
 
 # AULA 21 - GRÁFICOS
 try:
-    plt.subplots(1,2, figsize=(16,7))
-    plt.suptitle("Análise de Recuperação de Veículos no RJ")
+    plt.subplots(2,2, figsize=(16,7))
+    plt.suptitle("Análise de Recuperação de Veículos no RJ", fontsize=20)
 
-    plt.subplot(1,2,1)
+    plt.subplot(2,2,1)
     plt.boxplot(array_recuperacao, vert=False, showmeans=True)
     plt.title("Boxplot dos Dados")
 
-    plt.subplot(1, 2, 2)  # Configurar o segundo gráfico no lado direito
+    # Histograma
+    plt.subplot(2, 2, 2)
+    plt.hist(array_recuperacao, bins=50, edgecolor="black")
+    plt.axvline(media_recuperacao, color="g", linewidth=1)
+    plt.axvline(mediana_recuperacao, color="y", linewidth=1)
+
+    # Terceira posição
+    plt.subplot(2, 2, 3)
     plt.text(0.1, 1.0, f'Média: {media_recuperacao}', fontsize=12)
-    plt.text(0.1, 0.95, f'Mediana: {mediana_recuperacao}', fontsize=12)
-    plt.text(0.1, 0.9, f'Distância: {dist_recuperacao}', fontsize=12)
-    plt.text(0.1, 0.85, f'Menor valor: {minimo}', fontsize=12) 
-    plt.text(0.1, 0.8, f'Limite inferior: {limite_inferior}', fontsize=12)
-    plt.text(0.1, 0.75, f'Q1: {q1}', fontsize=12)
-    plt.text(0.1, 0.7, f'Q3: {q3}', fontsize=12)
-    plt.text(0.1, 0.65, f'Limite superior: {limite_superior}', fontsize=12)
-    plt.text(0.1, 0.6, f'Maior valor: {maximo}', fontsize=12)
-    plt.text(0.1, 0.55, f'Amplitude Total: {amplitude}', fontsize=12)
+    plt.text(0.1, 0.9, f'Mediana: {mediana_recuperacao}', fontsize=12)
+    plt.text(0.1, 0.8, f'Distância: {dist_recuperacao}', fontsize=12)
+    plt.text(0.1, 0.7, f'Menor valor: {minimo}', fontsize=12) 
+    plt.text(0.1, 0.6, f'Limite inferior: {limite_inferior}', fontsize=12)
+    plt.text(0.1, 0.5, f'Q1: {q1}', fontsize=12)
+    plt.text(0.1, 0.4, f'Q3: {q3}', fontsize=12)
+    plt.text(0.1, 0.3, f'Limite superior: {limite_superior}', fontsize=12)
+    plt.text(0.1, 0.2, f'Maior valor: {maximo}', fontsize=12)
+    plt.text(0.1, 0.1, f'Amplitude Total: {amplitude}', fontsize=12)
     plt.title("Medidas Observadas")
+
+    # Quarta posição
+    # plt.subplot(2, 2, 4)
 
     plt.axis("off")
     plt.tight_layout()
